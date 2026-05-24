@@ -1,5 +1,8 @@
 # 🛰️ NEO DEFENDER: COP ORBITAL RADAR – SYSTEM ARCHITECTURE & AI PROMPTS
 
+🎮 **Zagraj teraz / Play now:** [https://game-4e0b8.web.app](https://game-4e0b8.web.app)
+
+
 Ten plik zawiera **kompletny projekt nowej gry** opartej na Twoim pomyśle: **Taktycznym systemie obrony przed planetoidami (NEO - Near Earth Objects)**. Gra wykorzystuje **PRAWDZIWE DANE NA ŻYWO Z NASA API** dotyczące obiektów przelatujących dzisiaj obok Ziemi, łącząc realizm naukowy z humorem oraz elementami Stalowej Woli (COP - Centralny Okręg Przemysłowy).
 
 ---
