@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NEO DEFENDER: COP Orbital Radar - Space Shooter z prawdziwymi danymi NASA">
+    <title>NEO DEFENDER: COP Space Shooter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <!-- CRT Scanline Overlay -->
+    <div class="crt-overlay"></div>
+
+    <!-- Top Bar -->
+    <header id="topbar">
+        <div class="topbar-left">
+            <h1 id="game-title">
+                <span class="title-icon">◈</span>
+                HSW ORBITAL DEFENDER <span class="title-sep">//</span> STALOWA WOLA
+            </h1>
+        </div>
+        <div class="topbar-center">
+            <div id="lives-display" class="hud-block">
+                <span class="hud-label">SHIELDS</span>
+                <span id="lives-value">♥♥♥</span>
+            </div>
+            <div id="system-clock" class="hud-block">
+                <span class="hud-label">SYS.TIME</span>
+                <span id="clock-value">--:--:--</span>
+            </div>
+            <div id="wave-display" class="hud-block">
+                <span class="hud-label">WAVE</span>
+                <span id="wave-value">1</span>
+            </div>
+            <div id="level-display" class="hud-block">
+                <span class="hud-label">SHIP</span>
+                <span id="level-value" class="level-text">LVL 1</span>
+                <div id="level-bar-bg"><div id="level-bar-fill"></div></div>
+            </div>
+        </div>
+        <div class="topbar-right">
+            <div id="coins-right" class="hud-block">
+                <span class="hud-label">COINY</span>
+                <span id="coins-right-value" class="coins-text">🪙 0</span>
+            </div>
+            <div id="score-display" class="hud-block">
+                <span class="hud-label">REKORD</span>
+                <span id="score-value" class="coins-text">🪙 0</span>
+            </div>
+            <button id="mute-btn" title="Mute/Unmute">🔊</button>
+            <button id="reset-btn" title="System Reset">⟲</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Game Canvas -->
+        <section id="game-section">
+            <canvas id="game-canvas"></canvas>
+            <!-- Game Over Overlay -->
+            <!-- Start Screen / Nick Input -->
+            <div id="start-overlay">
+                <div class="start-box">
+                    <div class="start-title">HSW ORBITAL DEFENDER</div>
+                    <div class="start-subtitle">OBRONA ORBITALNA STALOWEJ WOLI</div>
+                    <div class="nick-input-group">
+                        <label for="nick-input" class="nick-label">WPISZ SWÓJ CALLSIGN, DOWÓDCO:</label>
+                        <input type="text" id="nick-input" maxlength="16" placeholder="HSW_PILOT" autocomplete="off" spellcheck="false">
+                    </div>
+                    <button id="start-btn" class="fire-button">⚡ START ⚡</button>
+                    <div id="leaderboard-start" class="leaderboard-panel"></div>
+                </div>
+            </div>
+            <!-- Game Over Overlay -->
+            <div id="game-over-overlay" class="hidden">
+                <div class="game-over-box">
+                    <div id="game-over-title" class="game-over-title">METEOR UDERZYŁ W MIASTO</div>
+                    <div class="game-over-subtitle">Asteroidy przebyły tarczę orbitalną HSW</div>
+                    <div id="game-over-stats"></div>
+                    <div id="game-over-record" class="new-record-label hidden">🏆 NOWY REKORD!</div>
+                    <div id="leaderboard-gameover" class="leaderboard-panel"></div>
+                    <button id="restart-btn" class="fire-button">⟲ RESTART MISSION</button>
+                </div>
+            </div>
+            <!-- City Impact Modal -->
+            <div id="city-modal" class="hidden">
+                <div class="city-modal-box">
+                    <div id="city-modal-icon" class="city-modal-icon">💥</div>
+                    <div id="city-modal-title" class="city-modal-title">UDERZENIE W MIASTO!</div>
+                    <div id="city-modal-desc" class="city-modal-desc"></div>
+                    <div id="city-modal-buttons" class="city-modal-buttons"></div>
+                </div>
+            </div>
+            <!-- Controls hint -->
+            <div id="controls-hint">
+                <span>WASD/↑↓←→ ruch</span>
+                <span>KLIK/SPACJA strzał</span>
+                <span>E sklep</span>
+            </div>
+        </section>
+
+        <!-- Right Panel: Details -->
+        <section id="details-section">
+            <div id="tab-bar">
+                <button class="tab-btn active" data-tab="telemetry">📡 TELEMETRIA</button>
+                <button class="tab-btn" data-tab="shop">🔧 SKLEP HSW</button>
+            </div>
+
+            <!-- Telemetry Tab -->
+            <div id="telemetry-tab" class="tab-content active">
+                <div id="no-selection" class="info-box">
+                    <div class="info-icon">◎</div>
+                    <p>CEL BRAK<br><small>Zniszcz asteroidę, aby zobaczyć dane NASA</small></p>
+                </div>
+                <div id="telemetry-card" class="hidden">
+                    <div class="card-header">
+                        <span class="card-label">KARTA TELEMETRYCZNA NASA</span>
+                        <span id="hazard-badge" class="hazard-badge hidden">⚠ HAZ</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="telemetry-row"><span class="tele-label">NAZWA</span><span id="tele-name" class="tele-value">---</span></div>
+                        <div class="telemetry-row"><span class="tele-label">ŚREDNICA</span><span id="tele-diameter" class="tele-value">---</span></div>
+                        <div class="telemetry-row"><span class="tele-label">PRĘDKOŚĆ</span><span id="tele-speed" class="tele-value">---</span></div>
+                        <div class="telemetry-row"><span class="tele-label">DYSTANS MIN.</span><span id="tele-distance" class="tele-value">---</span></div>
+                        <div class="telemetry-row"><span class="tele-label">ODLEGŁOŚĆ LD</span><span id="tele-ld" class="tele-value">---</span></div>
+                        <div class="threat-meter">
+                            <span class="tele-label">THREAT</span>
+                            <div class="threat-bar-container"><div id="threat-bar" class="threat-bar" style="width:0%"></div></div>
+                            <span id="threat-score-val" class="threat-score-number">0</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Upgrade status -->
+                <div id="active-upgrades" class="upgrade-status"></div>
+            </div>
+
+            <!-- Shop Tab -->
+            <div id="shop-tab" class="tab-content hidden">
+                <div class="shop-header">ZBROJOWNIA HUTY STALOWA WOLA</div>
+                <div id="shop-items"></div>
+            </div>
+
+            <!-- Event Log -->
+            <div id="event-log-container">
+                <div class="log-header"><span>📋 TACTICAL EVENT LOG</span></div>
+                <div id="event-log">
+                    <div class="log-entry system">[HSW] Inicjalizacja systemu obronnego Stalowej Woli...</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="audio.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
