@@ -17,8 +17,9 @@ Masz do wyboru dwie metody sterowania:
 - **Ognia!** Wystrzel pocisk naciskając **Spację**.
 
 **Mysz:**
-1. **Zaznacz cel:** Kliknij lewym przyciskiem myszy na zbliżającą się kropkę na radarze.
-2. **Ognia!** Kliknij przycisk **"FIRE DESTRUCTOR"** w prawym panelu.
+- **Celowanie:** Ogień będzie automatycznie podążał za Twoim kursorem na radarze.
+- **Zaznacz cel:** Kliknij lewym przyciskiem myszy na zbliżającą się kropkę, aby ją namierzyć.
+- **Ognia!** Kliknij przycisk **"FIRE DESTRUCTOR"** w prawym panelu.
 
 Za każdą zniszczoną asteroidę zbierasz kredyty, które możesz potem wydać w sklepie po prawej stronie na różnego rodzaju ulepszenia.
 
