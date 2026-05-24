@@ -3,9 +3,17 @@
 🎮 **Zagraj teraz / Play now:** [https://game-4e0b8.web.app](https://game-4e0b8.web.app)
 
 ### 🕹️ Sterowanie w grze (Controls):
+
+**Klawiatura:**
+- **Wybór celu:** Używaj strzałek (⬅️ ⬆️ ⬇️ ➡️) lub klawiszy **W, A, S, D**, aby przełączać się między celami.
+- **Ognia!** Naciśnij **Spację**, aby wystrzelić pocisk.
+
+**Mysz:**
 1. **Zaznacz cel:** Kliknij lewym przyciskiem myszy na zbliżającą się kropkę (asteroidę) na radarze.
 2. **Ognia!** W panelu bocznym kliknij przycisk **"FIRE DESTRUCTOR"**, aby zniszczyć zagrożenie.
-3. **Ulepszaj:** Za zdobyte kredyty kupuj ulepszenia w zakładce Sklepu po prawej stronie.
+
+**Progresja:**
+- **Ulepszaj:** Za zdobyte kredyty kupuj ulepszenia w zakładce Sklepu po prawej stronie.
 
 
 Ten plik zawiera **kompletny projekt nowej gry** opartej na Twoim pomyśle: **Taktycznym systemie obrony przed planetoidami (NEO - Near Earth Objects)**. Gra wykorzystuje **PRAWDZIWE DANE NA ŻYWO Z NASA API** dotyczące obiektów przelatujących dzisiaj obok Ziemi, łącząc realizm naukowy z humorem oraz elementami Stalowej Woli (COP - Centralny Okręg Przemysłowy).
